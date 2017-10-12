@@ -1,0 +1,38 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: digo-deployment
+  labels:
+    app: digodep
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: digodep
+  template:
+    metadata:
+      labels:
+        app: digodep
+    spec:
+      containers:
+      - name: digopod
+        image: nginx
+        ports:
+        - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: digodep
+spec:
+  selector:
+    app: digodep
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+  type: LoadBalancer
+  loadBalancerIP: 104.131.180.13
+  externalIPs:
+  - 104.131.180.13
+
