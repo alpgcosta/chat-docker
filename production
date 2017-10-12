@@ -1,2 +1,3 @@
 alias k=kubectl
 gpg -d admin.conf.gpg>admin.conf
+export KUBECONFIG=admin.conf
