@@ -5,4 +5,5 @@ RUN apt install -y git
 RUN mkdir chat-docker
 WORKDIR chat-docker
 COPY . .
+CMD ls
 EXPOSE 80
