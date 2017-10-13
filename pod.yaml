@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: digopod
-        image: nginx
+        image: alpgc/docker-whale
         ports:
         - containerPort: 80
 ---

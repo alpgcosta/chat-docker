@@ -1,3 +1,0 @@
-docker build -t alpgc/docker-whale .
-docker push alpgc/docker-whale
-
