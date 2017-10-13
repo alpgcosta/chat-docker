@@ -1,9 +1,10 @@
 FROM ubuntu
 RUN apt update
-RUN apt install -y npm
-RUN apt install -y git
+RUN apt install -y npm node.js
 RUN mkdir chat-docker
 WORKDIR chat-docker
+COPY package.json .
+RUN npm install
 COPY . .
-CMD sleep 300
+CMD npm start
 EXPOSE 80
