@@ -6,5 +6,5 @@ WORKDIR chat-docker
 COPY package.json .
 RUN npm install
 COPY . .
-CMD npm start
+CMD nodejs server.js
 EXPOSE 80
