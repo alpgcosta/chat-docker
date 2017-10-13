@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: digopod
-        image: alpgc/docker-whale
+        image: alpgc/chat-docker
         ports:
         - containerPort: 80
 ---
