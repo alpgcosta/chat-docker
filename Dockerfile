@@ -5,6 +5,5 @@ RUN apt install -y git
 RUN mkdir chat-docker
 WORKDIR chat-docker
 COPY . .
-RUN cat production
 CMD sleep 300
 EXPOSE 80
