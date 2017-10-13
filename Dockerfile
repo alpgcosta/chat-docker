@@ -1,6 +1,6 @@
 FROM ubuntu
 RUN apt update
-RUN apt install -y npm node.js
+RUN apt install -y npm nodejs
 RUN mkdir chat-docker
 WORKDIR chat-docker
 COPY package.json .
