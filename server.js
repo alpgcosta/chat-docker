@@ -1,6 +1,35 @@
-var http = require('http');
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('Hello!');
-}).listen(80); 
+var users = {};
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/chatPage.html');
+});
+
+io.on('connection', function(user) {
+  user.on('join', function(name) {
+    users[user.id] = name;
+    user.emit('update', 'You have been connected to the chat.');
+    user.broadcast.emit('update', name + ' has joined the chat.');
+  });
+
+  user.on('send', function(msg) {
+    console.log('Message: ' + msg);
+    user.broadcast.emit('chat', users[user.id], msg);
+  });
+
+  user.on('disconnect', function() {
+    console.log('Disconnected ' + users[user.id]);
+    io.emit('update', users[user.id] + ' has left the server.');
+    delete users[user.id];
+  });
+
+});
+
+
+
+http.listen(80, function() {
+  console.log('listening on port 80');
+});
