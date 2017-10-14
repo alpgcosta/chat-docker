@@ -1,3 +1,7 @@
 alias k=kubectl
-gpg -d admin.conf.gpg>admin.conf
+if [ -s admin.conf ];then
+	echo "File Already here"
+else
+	gpg -d admin.conf.gpg>admin.conf
+fi
 export KUBECONFIG=admin.conf
