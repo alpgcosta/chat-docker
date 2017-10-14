@@ -1,12 +1,15 @@
 var app = require('express')();
+var express = require('express');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var users = {};
 
-app.get('/', function(req, res) {
+/*app.get('/', function(req, res) {
   res.sendFile(__dirname + '/chatPage.html');
-});
+});*/
+
+app.use(express.static('public'));
 
 io.on('connection', function(user) {
   user.on('join', function(name) {
