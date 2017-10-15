@@ -41,6 +41,7 @@ window.onload = function() {
       document.querySelector(variaveis.getDOMStrings().usernameBlock).setAttributeNode(document.createAttribute("hidden"));
 
       variaveis.setUsername(document.querySelector(variaveis.getDOMStrings().nameArea).value);
+      document.querySelector(variaveis.getDOMStrings().nameArea).value = '';
       var time = new Date();
 
       variaveis.setState(true);
@@ -56,7 +57,7 @@ window.onload = function() {
     var sendText = function() {
       var text = document.querySelector(variaveis.getDOMStrings().textArea).value;
       console.log(text);
-      document.querySelector(variaveis.getDOMStrings().textArea).textContent = '';
+      document.querySelector(variaveis.getDOMStrings().textArea).value = '';
       console.log("NOME " + variaveis.getUsername());
       addLi(variaveis.getUsername(), text);
       variaveis.getSocket().emit("send", text);
