@@ -1,6 +1,6 @@
 window.onload = function() {
   var variaveis = (function() {
-    var socket = io.connect("http://localhost:80");
+    var socket = io.connect("http://104.131.180.13:80");
     var connected = false;
     var name = "";
     var DOMStrings = {
