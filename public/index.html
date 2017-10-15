@@ -9,17 +9,20 @@
   <body>
     <div class="username_block">
       <span>Choose an username</span>
-      <form><input type="text"/></form>
+      <form class="submit"><input type="text" class="name"></form>
     </div>
 
-    <div id="chat" hidden>
+    <div class="chat" hidden>
       <div class="user-info">
         <div class="name">Rodrigo</div>
       </div>
       <ol class="chat-messages">
 
       </ol>
-      <input type="text" class="text-area"/>
+      <input type="text" class="text-area">
+      <button class="send-text">Send</button>
     </div>
+    <script src="js.js"></script>
+    <script src="socket.io/socket.io.js"></script>
   </body>
 </html>

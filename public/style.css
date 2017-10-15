@@ -1,8 +1,8 @@
 html, body {
   background: #7f91a1;
   position: relative;
-  height: 90vh;
-  width: 150vh;
+  margin: 0px auto;
+  height: 100%;
 }
 
 .username_block {
@@ -27,10 +27,26 @@ html, body {
   left: 1%;
 }
 
-.text-area {
-  position: absolute;
-  top: 90%;
-  left: 3%;
+.send-text {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 16%;
   height: 80px;
-  width: 1200px;
+  padding: 10px;
+  z-index: 101;
+  font-size: 20px;
+}
+
+.text-area {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 80%;
+  height: 50px;
+  /*border: none;
+  outline: none;*/
+  padding: 10px;
+  z-index: 100;
 }
