@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="chatapp">
   <head>
     <meta charset="utf-8">
     <title>Very cool chat</title>
     <link rel="stylesheet" href="style.css">
 		<script src=https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js></script>
-    <script src="js.js"></script>
+    <script src="app.js"></script>
     <script src="socket.io/socket.io.js"></script>
   </head>
 
-  <body>
-    <div class="username_block">
+  <body ng-controller="chatctl as ctl">
+		<div  class="username_block" ng-show="ctl.user==null">
       <span>Choose an username</span>
-      <form class="submit"><input type="text" class="name"></form>
+      <form class="submit" ng-submit="ctl.setUsername(username)"><input type="text" class="name" ng-model="username"></form>
     </div>
 
-    <div class="chat" hidden>
-      <div class="user-info">
-        <div class="name">Rodrigo</div>
-      </div>
-      <ol class="chat-messages">
+		<div class="chat" ng-hide="ctl.user==null">
+			<div class="user-info">
+				<div class="name">{{ctl.user}}</div>
+			</div>
 
-      </ol>
-      <input type="text" class="text-area">
-      <button class="send-text">Send</button>
-    </div>
+			<div ng-repeat="msg in msgs">
+				<strong>{{msg.client}}:</strong> {{msg.msg}}
+			</div>
+
+			<input type="text" class="text-area" ng-model="message">
+			<button class="send-text" ng-click="ctl.send(message)">Send</button>
+		</div>
   </body>
 </html>
