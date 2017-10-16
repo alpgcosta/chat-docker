@@ -26,10 +26,12 @@
 			<div class="container-fluid fixed-bottom">
 				<div class="row">
 					<div class="col-10">
-						<input type="text" style="width:100%" ng-submit="ctl.send(message)" ng-model="message">
+						<form ng-submit="ctl.send(message)">
+						<input type="text" style="width:100%;" ng-model="message" />
+						</form>
 					</div>
 					<div class="col">
-						<button type="button" style="width:100%" class="btn btn-primary" ng-click="ctl.send(message)">Send</button>
+						<button type="button" style="width:100%;margin: 0 0 0 0; " class="btn btn-primary" ng-click="ctl.send(message)">Send</button>
 					</div>
 				</div>
 			</div>
